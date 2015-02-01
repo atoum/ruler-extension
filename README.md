@@ -11,7 +11,7 @@ Add this repository in your composer.json
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/agallou/atoum-ruler-extension"
+            "url": "https://github.com/agallou/ruler-extension"
         }
     ],
 ```
