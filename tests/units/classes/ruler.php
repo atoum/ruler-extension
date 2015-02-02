@@ -83,9 +83,6 @@ class ruler extends atoum\test
 
         $data[] = array($case, $rules);
 
-
         return $data;
-
-
     }
 }

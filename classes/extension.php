@@ -7,7 +7,6 @@ use mageekguy\atoum\observable;
 use mageekguy\atoum\runner;
 use mageekguy\atoum\exceptions\logic\invalidArgument;
 use mageekguy\atoum\test;
-use mageekguy\atoum\annotations;
 
 class extension implements atoum\extension
 {
@@ -27,7 +26,7 @@ class extension implements atoum\extension
             $script = $configurator->getScript();
             $parser = $script->getArgumentsParser();
             $extension = $this;
-            $handler = function(\mageekguy\atoum\scripts\runner $script, $argument, $values) use ($extension) {
+            $handler = function(atoum\scripts\runner $script, $argument, $values) use ($extension) {
                 if (sizeof($values) != 1)
                 {
                     throw new invalidArgument(sprintf($script->getLocale()->_('Bad usage of %s, do php %s --help for more informations'), $argument, $script->getName()));
@@ -56,7 +55,6 @@ EOF;
 
     /**
      * @param string $rule
-     *
      * @return $this
      */
     protected function setRule($rule)
@@ -68,7 +66,6 @@ EOF;
 
     /**
      * @param runner $runner
-     *
      * @return $this
      */
     public function setRunner(runner $runner)
@@ -78,7 +75,6 @@ EOF;
 
     /**
      * @param test $test
-     *
      * @return $this
      */
     public function setTest(test $test)
