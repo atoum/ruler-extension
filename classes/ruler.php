@@ -23,7 +23,7 @@ class ruler
      */
     public function __construct($rule)
     {
-        $this->rule = $rule;
+        $this->rule = HoaRuler::interpret($rule);
         $this->ruler = new HoaRuler();
     }
 
