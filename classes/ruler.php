@@ -30,9 +30,7 @@ class ruler
     /**
      * @param test   $test
      * @param string $methodNameToCheck
-     *
      * @return bool
-     *
      * @throws \RuntimeException
      */
     public function isMethodIgnored(test $test, $methodNameToCheck)
