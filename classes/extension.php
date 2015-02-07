@@ -1,14 +1,14 @@
 <?php
 
-namespace mageekguy\atoum\ruler;
+namespace atoum\ruler;
 
-use mageekguy\atoum;
 use mageekguy\atoum\observable;
+use mageekguy\atoum\configurator;
 use mageekguy\atoum\runner;
-use mageekguy\atoum\exceptions\logic\invalidArgument;
+use atoum\exceptions\logic\invalidArgument;
 use mageekguy\atoum\test;
 
-class extension implements atoum\extension
+class extension implements \atoum\extension
 {
 	/**
 	 * @var string|null
@@ -17,16 +17,16 @@ class extension implements atoum\extension
 
 
 	/**
-	 * @param atoum\configurator $configurator
+	 * @param configurator $configurator
 	 */
-	public function __construct(atoum\configurator $configurator = null)
+	public function __construct(configurator $configurator = null)
 	{
 		if ($configurator)
 		{
 			$script = $configurator->getScript();
 			$parser = $script->getArgumentsParser();
 			$extension = $this;
-			$handler = function(atoum\scripts\runner $script, $argument, $values) use ($extension) {
+			$handler = function(\atoum\scripts\runner $script, $argument, $values) use ($extension) {
 				if (sizeof($values) != 1)
 				{
 					throw new invalidArgument(sprintf($script->getLocale()->_('Bad usage of %s, do php %s --help for more informations'), $argument, $script->getName()));

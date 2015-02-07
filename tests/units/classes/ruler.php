@@ -1,20 +1,17 @@
 <?php
 
-namespace mageekguy\atoum\ruler\tests\units;
+namespace atoum\ruler\tests\units;
 
-use
-	mageekguy\atoum,
-	mageekguy\atoum\ruler\ruler as testedClass
-	;
+use atoum\ruler\ruler as testedClass;
 
-class ruler extends atoum\test
+class ruler extends \atoum\test
 {
 	/**
 	 * @dataProvider testFilterDataProvider
 	 */
 	public function testIsMethodIgnored($case, $rules)
 	{
-		$test = new \mock\mageekguy\atoum\test();
+		$test = new \mock\atoum\test();
 
 		$test->getMockController()->getTestMethods = array_keys($case['methodTags']);
 		$test->getMockController()->getClass = $case['class'];

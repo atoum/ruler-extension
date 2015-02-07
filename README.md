@@ -36,7 +36,7 @@ Enable the extension using atoum configuration file:
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-$runner->addExtension(new \mageekguy\atoum\ruler\extension($script));
+$runner->addExtension(new \atoum\ruler\extension($script));
 ```
 
 ## Use it
