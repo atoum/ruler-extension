@@ -7,7 +7,7 @@
 Install extension using [composer](https://getcomposer.org):
 
 ```
-composer require atoum/ruler-extension:dev-master
+composer require --dev atoum/ruler-extension:dev-master
 ```
 
 Enable the extension using atoum configuration file:
