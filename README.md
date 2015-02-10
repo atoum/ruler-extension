@@ -6,25 +6,8 @@
 
 Install extension using [composer](https://getcomposer.org):
 
-Add this repository in your composer.json
 ```
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/agallou/ruler-extension"
-		}
-	],
-```
-
-Then add the ruler-extension to your dev requirements :
-
-```json
-{
-	"require-dev": {
-		"atoum/ruler-extension": "dev-master"
-	},
-}
-
+composer require --dev atoum/ruler-extension:dev-master
 ```
 
 Enable the extension using atoum configuration file:
