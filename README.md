@@ -1,4 +1,4 @@
-# atoum/ruler-extension
+# atoum/ruler-extension [![Build Status](https://travis-ci.org/atoum/ruler-extension.svg?branch=master)](https://travis-ci.org/atoum/ruler-extension)
 
 ![atoum](http://downloads.atoum.org/images/logo.png)
 
