@@ -1,7 +1,7 @@
 {
     "name": "atoum/ruler-extension",
     "require": {
-        "atoum/atoum": "~1.0",
+        "atoum/atoum": "<3.0",
         "hoa/ruler": "~1.0"
     },
     "license": "MIT",
