@@ -1,6 +1,6 @@
 <?php
 
-namespace mageekguy\atoum\ruler;
+namespace atoum\ruler;
 
 use mageekguy\atoum\test;
 use Hoa\Ruler\Context as HoaContext;
