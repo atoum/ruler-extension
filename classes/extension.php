@@ -24,7 +24,6 @@ class extension implements atoum\extension
 		if ($configurator)
 		{
 			$script = $configurator->getScript();
-			$parser = $script->getArgumentsParser();
 			$extension = $this;
 			$handler = function(atoum\scripts\runner $script, $argument, $values) use ($extension) {
 				if (sizeof($values) != 1)
@@ -39,16 +38,18 @@ class extension implements atoum\extension
 				$extension->setRule($value);
 			};
 
-			$example = <<<EOF
-'not("featureA" in tags) and namespace = "foo\bar"'
-EOF;
+            $testHandler = function($script, $argument, $values) {
+                $script->getRunner()->addTestsFromDirectory(dirname(__DIR__) . '/tests/units/classes');
+            };
 
-			$script
+            $script
+                ->addArgumentHandler($testHandler, array('--test-ext'))
+                ->addArgumentHandler($testHandler, array('--test-it'))
 				->addArgumentHandler(
 					$handler,
 					array('--filter'),
 					null,
-					$script->getLocale()->_('Filters tests to execute. For example ' . $example)
+					$script->getLocale()->_('Filters tests to execute. For example \'not("featureA" in tags) and namespace = "foo\bar"\'')
 				)
 			;
 		}
