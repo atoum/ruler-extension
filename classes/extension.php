@@ -30,21 +30,23 @@ class extension implements atoum\extension
 				{
 					throw new invalidArgument(sprintf($script->getLocale()->_('Bad usage of %s, do php %s --help for more informations'), $argument, $script->getName()));
 				}
+
 				$value = array_shift($values);
 				if (0 === strlen(trim($value)))
 				{
 					throw new invalidArgument(sprintf($script->getLocale()->_('Bad usage of %s, do php %s --help for more informations'), $argument, $script->getName()));
 				}
+
 				$extension->setRule($value);
 			};
 
-            $testHandler = function($script, $argument, $values) {
-                $script->getRunner()->addTestsFromDirectory(dirname(__DIR__) . '/tests/units/classes');
-            };
+			$testHandler = function($script, $argument, $values) {
+				$script->getRunner()->addTestsFromDirectory(dirname(__DIR__) . '/tests/units/classes');
+			};
 
-            $script
-                ->addArgumentHandler($testHandler, array('--test-ext'))
-                ->addArgumentHandler($testHandler, array('--test-it'))
+			$script
+				->addArgumentHandler($testHandler, array('--test-ext'))
+				->addArgumentHandler($testHandler, array('--test-it'))
 				->addArgumentHandler(
 					$handler,
 					array('--filter'),
