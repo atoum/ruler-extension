@@ -38,19 +38,19 @@ class extension implements atoum\extension
 				$extension->setRule($value);
 			};
 
-            $testHandler = function($script, $argument, $values) {
-                $script->getRunner()->addTestsFromDirectory(dirname(__DIR__) . '/tests/units/classes');
-            };
+			$testHandler = function($script, $argument, $values) {
+                	$script->getRunner()->addTestsFromDirectory(dirname(__DIR__) . '/tests/units/classes');
+        	};
 
-            $script
-                ->addArgumentHandler($testHandler, array('--test-ext'))
-                ->addArgumentHandler($testHandler, array('--test-it'))
-				->addArgumentHandler(
-					$handler,
-					array('--filter'),
-					null,
-					$script->getLocale()->_('Filters tests to execute. For example \'not("featureA" in tags) and namespace = "foo\bar"\'')
-				)
+        	$script
+			->addArgumentHandler($testHandler, array('--test-ext'))
+			->addArgumentHandler($testHandler, array('--test-it'))
+			->addArgumentHandler(
+				$handler,
+				array('--filter'),
+				null,
+				$script->getLocale()->_('Filters tests to execute. For example \'not("featureA" in tags) and namespace = "foo\bar"\'')
+			)
 			;
 		}
 	}
