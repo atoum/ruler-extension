@@ -50,8 +50,7 @@ class extension implements atoum\extension
 				array('--filter'),
 				null,
 				$script->getLocale()->_('Filters tests to execute. For example \'not("featureA" in tags) and namespace = "foo\bar"\'')
-			)
-			;
+			);
 		}
 	}
 
