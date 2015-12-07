@@ -57,6 +57,13 @@ class extension implements atoum\extension
 		}
 	}
 
+	public function addToRunner(runner $runner)
+	{
+		$runner->addExtension($this);
+
+		return $this;
+	}
+
 	/**
 	 * @param string $rule
 	 * @return $this
