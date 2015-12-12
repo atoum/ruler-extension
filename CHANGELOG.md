@@ -1,6 +1,7 @@
 # `dev-master`
 
 * [#24](https://github.com/atoum/ruler-extension/pull/24) Add a contain operator ([@agallou])
+* [#20](https://github.com/atoum/ruler-extension/pull/20) Add a filter on extensions ([@agallou])
 
 # 1.0.3 - 2015-06-24
 

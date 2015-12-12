@@ -46,6 +46,10 @@ class ruler
 			$contexts[$methodName]['testedclassnamespace'] = $test->getTestedClassNamespace();
 		}
 
+		foreach ($test->getMandatoryMethodExtensions() as $methodName => $extensions) {
+			$contexts[$methodName]['extensions'] = $extensions;
+		}
+
 		foreach ($test->getMethodTags() as $methodName => $tags) {
 			$contexts[$methodName]['tags'] = $tags;
 		}

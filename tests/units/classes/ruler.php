@@ -22,6 +22,8 @@ class ruler extends atoum\test
 		$test->getMockController()->getTestedClassName = $case['testedClassName'];
 		$test->getMockController()->getTestedClassNameNamespace = $case['testedClassNamespace'];
 		$test->getMockController()->getMethodTags = $case['methodTags'];
+		$test->getMockController()->getMandatoryMethodExtensions = $case['mandatoryMethodExtensions'];
+
 
 		foreach ($rules as $rule => $methodCases) {
 			$testedClass = new testedClass($rule);
@@ -48,6 +50,11 @@ class ruler extends atoum\test
 			'classNamespace' => 'mageekguy\atoum\ruler\tests\units',
 			'testedClassName' => 'mageekguy\atoum\ruler\testClass1',
 			'testedClassNamespace' => 'mageekguy\atoum\ruler',
+			'mandatoryMethodExtensions' => array(
+				'testMethod1' => array(
+					'opcache',
+				),
+			),
 		);
 
 		//rule.method => isMethodIgnored
@@ -57,6 +64,12 @@ class ruler extends atoum\test
 			),
 			'not(tags contains "unSuperTagAuNiveauDeLaMethode1")' => array(
 				'testMethod1' => true,
+			),
+			'not("opcache" in extensions)' => array(
+				'testMethod1' => true,
+			),
+			'"opcache" in extensions' => array(
+				'testMethod1' => false,
 			),
 			'method = "testMethod1"' => array(
 				'testMethod1' => false,
