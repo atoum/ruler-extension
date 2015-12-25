@@ -43,6 +43,7 @@ class ruler
 			$contexts[$methodName]['namespace'] = $test->getClassNamespace();
 			$contexts[$methodName]['testedclass'] = $test->getTestedClassName();
 			$contexts[$methodName]['testedclassnamespace'] = $test->getTestedClassNamespace();
+			$contexts[$methodName]['phpVersionConstraint'] = new phpVersionConstraint($test->getMethodPhpVersions($methodName));
 		}
 
 		foreach ($test->getMethodTags() as $methodName => $tags) {
