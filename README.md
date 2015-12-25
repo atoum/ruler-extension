@@ -46,8 +46,15 @@ Those variables are available in the filter:
 Run all tests except those who have the `needsDatabase` tag:
 
 ```
+./vendor/bin/atoum -d tests --filter 'not (tags contains "needsDatabase")'
+```
+
+You can also use the ruler's default `in` operator, but in that case that's less readable:
+
+```
 ./vendor/bin/atoum -d tests --filter 'not ("needsDatabase" in tags)'
 ```
+
 
 Run all tests with a method named `testMethod1`:
 

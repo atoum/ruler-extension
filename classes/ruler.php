@@ -25,6 +25,7 @@ class ruler
 	{
 		$this->rule = HoaRuler::interpret($rule);
 		$this->ruler = new HoaRuler();
+		$this->ruler->getAsserter()->setOperator('contains',  function (Array $a,  $b) { return in_array($b, $a); });
 	}
 
 	/**

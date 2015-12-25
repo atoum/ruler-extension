@@ -1,3 +1,7 @@
+# `dev-master`
+
+* [#24](https://github.com/atoum/ruler-extension/pull/24) Add a contain operator ([@agallou])
+
 # 1.0.3 - 2015-06-24
 
 * [#17](https://github.com/atoum/ruler-extension/pull/17) Move to Hoa\Ustring ([@Metalaka](https://github.com/Metalaka))
