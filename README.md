@@ -19,7 +19,11 @@ Enable the extension using atoum configuration file:
 
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-$runner->addExtension(new \mageekguy\atoum\ruler\extension($script));
+use mageekguy\atoum\ruler;
+
+$extension = new ruler\extension($script);
+
+$extension->addToRunner($extension);
 ```
 
 ## Use it
