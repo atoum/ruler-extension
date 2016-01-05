@@ -1,8 +1,10 @@
 {
     "name": "atoum/ruler-extension",
     "require": {
-        "atoum/atoum": "<3.0",
-        "hoa/ruler": "~1.0"
+        "atoum/atoum": ">=1.0,<3.0",
+        "hoa/ruler": ">=1.15.11.09,<2.0",
+        "hoa/regex": ">=0.15.05.29,<1.0",
+        "hoa/core": ">=2.14.12.10,<3.0"
     },
     "license": "MIT",
     "authors": [
