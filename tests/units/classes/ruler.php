@@ -16,12 +16,19 @@ class ruler extends atoum\test
 	{
 		$test = new \mock\mageekguy\atoum\test();
 
-		$test->getMockController()->getTestMethods = array_keys($case['methodTags']);
+		$test->getMockController()->getTestMethods = $case['testMethods'];
 		$test->getMockController()->getClass = $case['class'];
 		$test->getMockController()->getClassNamespace = $case['classNamespace'];
 		$test->getMockController()->getTestedClassName = $case['testedClassName'];
 		$test->getMockController()->getTestedClassNameNamespace = $case['testedClassNamespace'];
 		$test->getMockController()->getMethodTags = $case['methodTags'];
+		$this->calling($test)->getMethodPhpVersions = function($methodName) use ($case) {
+			if (!isset($case['methodPhpVersions'][$methodName])) {
+				return array();
+			}
+
+			return $case['methodPhpVersions'][$methodName];
+		};
 
 		foreach ($rules as $rule => $methodCases) {
 			$testedClass = new testedClass($rule);
@@ -39,6 +46,9 @@ class ruler extends atoum\test
 		$data = array();
 
 		$case = array(
+			'testMethods' => array(
+				'testMethod1',
+			),
 			'methodTags' => array(
 				'testMethod1' => array(
 					'unSuperTagAuNiveauDeLaMethode1'
@@ -48,6 +58,7 @@ class ruler extends atoum\test
 			'classNamespace' => 'mageekguy\atoum\ruler\tests\units',
 			'testedClassName' => 'mageekguy\atoum\ruler\testClass1',
 			'testedClassNamespace' => 'mageekguy\atoum\ruler',
+			'methodPhpVersions' => array(),
 		);
 
 		//rule.method => isMethodIgnored
@@ -81,6 +92,102 @@ class ruler extends atoum\test
 			),
 			'testedclassnamespace = "mageekguy\atoum\ruler"' => array(
 				'testMethod1' => false,
+			),
+		);
+
+		$data[] = array($case, $rules);
+
+		$case['testMethods'][] = 'testMethod2';
+		$case['testMethods'][] = 'testMethod3';
+		$case['testMethods'][] = 'testMethod4';
+		$case['testMethods'][] = 'testMethod5';
+		$case['testMethods'][] = 'testMethod6';
+		$case['testMethods'][] = 'testMethod7';
+		$case['methodPhpVersions'] = array(
+			'testMethod2' => array(
+				'7.0' => '>='
+			),
+			'testMethod3' => array(
+				'5.5' => '>'
+			),
+			'testMethod4' => array(
+				'5.4' => '='
+			),
+			'testMethod5' => array(
+				'5.3' => '<'
+			),
+			'testMethod6' => array(
+				'5.2' => '<='
+			),
+			'testMethod7' => array(
+				'5.3' => '<=',
+				'5.5' => '=',
+			),
+		);
+
+		$rules = array(
+			'phpVersionConstraint.containsGte("7.0")' => array(
+				'testMethod1' => true,
+				'testMethod2' => false,
+				'testMethod3' => true,
+				'testMethod4' => true,
+				'testMethod5' => true,
+				'testMethod6' => true,
+				'testMethod7' => true,
+			),
+			'phpVersionConstraint.containsGt("5.5")' => array(
+				'testMethod1' => true,
+				'testMethod2' => true,
+				'testMethod3' => false,
+				'testMethod4' => true,
+				'testMethod5' => true,
+				'testMethod6' => true,
+				'testMethod7' => true,
+			),
+			'phpVersionConstraint.containsEq("5.4")' => array(
+				'testMethod1' => true,
+				'testMethod2' => true,
+				'testMethod3' => true,
+				'testMethod4' => false,
+				'testMethod5' => true,
+				'testMethod6' => true,
+				'testMethod7' => true,
+			),
+			'phpVersionConstraint.containsLt("5.3")' => array(
+				'testMethod1' => true,
+				'testMethod2' => true,
+				'testMethod3' => true,
+				'testMethod4' => true,
+				'testMethod5' => false,
+				'testMethod6' => true,
+				'testMethod7' => true,
+			),
+			'phpVersionConstraint.containsLte("5.2")' => array(
+				'testMethod1' => true,
+				'testMethod2' => true,
+				'testMethod3' => true,
+				'testMethod4' => true,
+				'testMethod5' => true,
+				'testMethod6' => false,
+				'testMethod7' => true,
+			),
+			'phpVersionConstraint.containsEq("5.5")' => array(
+				'testMethod1' => true,
+				'testMethod2' => true,
+				'testMethod3' => true,
+				'testMethod4' => true,
+				'testMethod5' => true,
+				'testMethod6' => true,
+				'testMethod7' => false,
+			),
+			'phpVersionConstraint.containsLte("5.3")' => array(
+				'testMethod1' => true,
+				'testMethod2' => true,
+				'testMethod3' => true,
+				'testMethod4' => true,
+				'testMethod5' => true,
+				'testMethod6' => true,
+				'testMethod7' => false,
 			),
 		);
 

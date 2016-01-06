@@ -44,6 +44,12 @@ Those variables are available in the filter:
 * `testedclass`
 * `testedclassnamespace`
 * `tags` (as an array)
+* `phpVersionConstraint`
+  * `.hasGte`
+  * `.hasGt`
+  * `.hasEq`
+  * `.hasLt`
+  * `.hasLte`
 
 ## Examples
 
@@ -105,4 +111,23 @@ Run the tests that test the classes in the `mageekguy\atoum\ruler` namespace:
 
 ```
 ./vendor/bin/atoum -d tests --filter 'testedclassnamespace = "mageekguy\atoum\ruler'
+```
+
+### PHP Version constraint
+
+Run the tests that that has a constraint on greater equal than PHP 7:
+
+```
+./vendor/bin/atoum -d tests --filter 'phpVersionConstraint.hasGte("7.0")'
+```
+
+The constraint on the test is added like this :
+```php
+    /**
+     * @php >= 7.0
+     */
+    public function testMethod()
+    {
+       //test content
+    }
 ```
