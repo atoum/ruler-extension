@@ -44,6 +44,7 @@ Those variables are available in the filter:
 * `testedclass`
 * `testedclassnamespace`
 * `tags` (as an array)
+* `extensions` (as an array)
 
 ## Examples
 
@@ -105,4 +106,10 @@ Run the tests that test the classes in the `mageekguy\atoum\ruler` namespace:
 
 ```
 ./vendor/bin/atoum -d tests --filter 'testedclassnamespace = "mageekguy\atoum\ruler'
+```
+
+Run all tests that needs the blackfire extension :
+
+```
+./vendor/bin/atoum -d tests --filter '"blackfire" in extensions'
 ```
