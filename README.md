@@ -1,32 +1,6 @@
 # atoum/ruler-extension [![Build Status](https://travis-ci.org/atoum/ruler-extension.svg?branch=master)](https://travis-ci.org/atoum/ruler-extension)
 
-![atoum](http://downloads.atoum.org/images/logo.png)
-
-## Install it
-
-Install extension using [composer](https://getcomposer.org):
-
-```
-composer require --dev atoum/ruler-extension:~1.0
-```
-
-Enable the extension using atoum configuration file:
-
-```php
-<?php
-
-// .atoum.php
-
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
-
-use mageekguy\atoum\ruler;
-
-$extension = new ruler\extension($script);
-
-$extension->addToRunner($extension);
-```
-
-## Use it
+This extension allows you to precisely filter test cases to run with a "natural language".
 
 The extension adds a `--filter` option to atoum. This line now appears on the atoum help:
 
@@ -35,6 +9,18 @@ The extension adds a `--filter` option to atoum. This line now appears on the at
 ```
 
 You can now filter your tests using any [Hoa\Ruler filter](https://github.com/hoaproject/Ruler).
+
+
+## Example
+
+```
+./vendor/bin/atoum -d tests --filter 'not("featureA" in tags) and namespace = "foo\bar"'
+```
+
+This will only launch test that are not tagged with "featureA" and have the `foo\bar` namespace.
+
+
+## Available filters
 
 Those variables are available in the filter:
 
@@ -46,7 +32,39 @@ Those variables are available in the filter:
 * `tags` (as an array)
 * `extensions` (as an array)
 
+
+## Install it
+
+Install extension using [composer](https://getcomposer.org):
+
+```
+composer require --dev atoum/ruler-extension
+```
+
+Enable the extension using atoum configuration file:
+
+```php
+<?php
+
+// .atoum.php
+
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+
+$extension = new \atoum\ruler\extension($script);
+$extension->addToRunner($extension);
+```
+
+
 ## Examples
+
+
+### Filter on tags
+
+Run all tests who have the `needsDatabase` tag:
+
+```
+./vendor/bin/atoum -d tests --filter 'tags contains "needsDatabase"'
+```
 
 Run all tests except those who have the `needsDatabase` tag:
 
@@ -60,13 +78,16 @@ You can also use the ruler's default `in` operator, but in that case that's less
 ./vendor/bin/atoum -d tests --filter 'not ("needsDatabase" in tags)'
 ```
 
+Read more about tags in [atoum's documentation](http://docs.atoum.org/en/latest/launch_test.html?highlight=tags#tags).
+
+
+### Filter on the test method name
 
 Run all tests with a method named `testMethod1`:
 
 ```
 ./vendor/bin/atoum -d tests --filter 'method = "testMethod1'
 ```
-
 
 Run all tests with a method named `testMethod1` (using an array representing a list of methods to filter):
 
@@ -75,12 +96,7 @@ Run all tests with a method named `testMethod1` (using an array representing a l
 ```
 
 
-You can also define more complex filters like this: Run all tests tagged `needsDatabase` and with method `testClass1` or with a method `testClass`:
-
-```
-./vendor/bin/atoum --filter '("needsDatabase" in tags and method = "testClass1") or (method = "testClass")'
-```
-
+### Filter on the test classname
 
 Run the test with the `mageekguy\atoum\ruler\tests\units\testClass1` classname:
 
@@ -89,6 +105,8 @@ Run the test with the `mageekguy\atoum\ruler\tests\units\testClass1` classname:
 ```
 
 
+### Filter on the test namespace
+
 Run all tests in the `mageekguy\atoum\ruler\tests\units` namespace:
 
 ```
@@ -96,11 +114,16 @@ Run all tests in the `mageekguy\atoum\ruler\tests\units` namespace:
 ```
 
 
+### Filter on the tested class name
+
 Run the tests that test the `mageekguy\atoum\ruler\testClass1` class:
 
 ```
 ./vendor/bin/atoum -d tests --filter 'testedclass = "mageekguy\atoum\ruler\testClass1'
 ```
+
+
+### Filter on the tested class namespace
 
 Run the tests that test the classes in the `mageekguy\atoum\ruler` namespace:
 
@@ -108,8 +131,39 @@ Run the tests that test the classes in the `mageekguy\atoum\ruler` namespace:
 ./vendor/bin/atoum -d tests --filter 'testedclassnamespace = "mageekguy\atoum\ruler'
 ```
 
+
+### Filter on the test required extensions
+
 Run all tests that needs the blackfire extension :
 
 ```
-./vendor/bin/atoum -d tests --filter '"blackfire" in extensions'
+./vendor/bin/atoum -d tests --filter 'extensions contains "blackfire"'
 ```
+
+You can also use the ruler's default `in` operator, but in that case that's less readable:
+
+```
+./vendor/bin/atoum -d tests --filter '"blackfire" in tags'
+```
+
+You can read more about the test required extensions in [atoum's documentation](http://docs.atoum.org/en/latest/written_help.html#php-extensions).
+
+
+### Apply multiple filters
+
+
+You can also define more complex filters like this: Run all tests tagged `needsDatabase` and with method `testClass1` or with a method `testClass`:
+
+```
+./vendor/bin/atoum --filter '("needsDatabase" in tags and method = "testClass1") or (method = "testClass")'
+```
+
+## Links
+
+* [Hoa\Ruler](https://github.com/hoaproject/Ruler)
+* [Hoa\Ruler's documentation](http://hoa-project.net/En/Literature/Hack/Ruler.html)
+* [atoum](http://atoum.org)
+* [atoum's documentation](http://docs.atoum.org)
+
+
+![atoum](http://downloads.atoum.org/images/logo.png)
