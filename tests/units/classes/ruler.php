@@ -55,6 +55,9 @@ class ruler extends atoum\test
 			'not("unSuperTagAuNiveauDeLaMethode1" in tags)' => array(
 				'testMethod1' => true,
 			),
+			'not(tags contains "unSuperTagAuNiveauDeLaMethode1")' => array(
+				'testMethod1' => true,
+			),
 			'method = "testMethod1"' => array(
 				'testMethod1' => false,
 			),
