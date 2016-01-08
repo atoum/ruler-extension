@@ -7,14 +7,19 @@
 
 # 1.0.3 - 2015-06-24
 
-* [#17](https://github.com/atoum/ruler-extension/pull/17) Move to Hoa\Ustring ([@Metalaka](https://github.com/Metalaka))
+* [#17](https://github.com/atoum/ruler-extension/pull/17) Move to Hoa\Ustring ([@Metalaka])
 
 # 1.0.2 - 2015-02-27
 
-* Removed file autoloader to avoid conflicts with composer ([@Hywan](https://github.com/Hywan))
+* Removed file autoloader to avoid conflicts with composer ([@Hywan])
 
 # 1.0.1 - 2015-02-21
 
 * Fixed autoloader
 
 # 1.0.0 - 2015-02-21
+
+[@agallou]: https://github.com/agallou
+[@jubianchi]: https://github.com/jubianchi
+[@Metalaka]: https://github.com/Metalaka
+[@Hywan]: https://github.com/Hywan
