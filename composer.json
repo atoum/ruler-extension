@@ -3,7 +3,7 @@
     "require": {
         "atoum/atoum": ">=1.0,<3.0",
         "hoa/ruler": ">=2.16.01.11,<3.0",
-        "hoa/regex": ">=0.16.01.11,<1.0"
+        "hoa/stream": ">=0.16.01.11,<1.0"
     },
     "license": "MIT",
     "authors": [
