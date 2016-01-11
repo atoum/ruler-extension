@@ -11,14 +11,13 @@ if (is_dir($vendorDirectory) === false)
 	$vendorDirectory = __DIR__ . '/../..';
 }
 
-if (is_file($vendorAutoloader = $vendorDirectory . '/hoa/core/Core.php')) {
-	require_once $vendorDirectory . '/hoa/core/Core.php';
+if (is_file($vendorAutoloader = $vendorDirectory . '/hoa/consistency/Prelude.php')) {
+	require_once $vendorDirectory . '/hoa/consistency/Prelude.php';
 }
 
 atoum\autoloader::get()
 	->addNamespaceAlias('atoum\ruler', __NAMESPACE__)
 	->addDirectory(__NAMESPACE__, __DIR__ . '/classes')
-	->addDirectory('Hoa\Core', $vendorDirectory . '/hoa/core')
 	->addDirectory('Hoa\Compiler', $vendorDirectory . '/hoa/compiler')
 	->addDirectory('Hoa\File', $vendorDirectory . '/hoa/file')
 	->addDirectory('Hoa\Iterator', $vendorDirectory . '/hoa/iterator')
