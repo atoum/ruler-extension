@@ -1,3 +1,7 @@
+# 1.2.0 - 2016-01-19
+
+* [#30](https://github.com/atoum/ruler-extension/pull/30) Update Hoa dependency ([@jubianchi] & [@Hywan])
+
 # 1.1.0 - 2016-01-08
 
 * [#24](https://github.com/atoum/ruler-extension/pull/24) Add a contain operator ([@agallou])
