@@ -1,7 +1,7 @@
 {
     "name": "atoum/ruler-extension",
     "description": "The atoum ruler-extension allows you to filter your tests using Hoa\\Ruler",
-    "keywords": ["TDD","atoum","atoum-extension"],
+    "keywords": ["TDD","atoum","atoum-extension","filter","ruler"],
     "require": {
         "atoum/atoum": ">=1.3.0,<3.0",
         "hoa/ruler": ">=1.15.11.09,<2.0 | >=2.16.01.15,<3.0"
