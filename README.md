@@ -166,4 +166,4 @@ You can also define more complex filters like this: Run all tests tagged `needsD
 * [atoum's documentation](http://docs.atoum.org)
 
 
-![atoum](http://downloads.atoum.org/images/logo.png)
+![atoum](http://atoum.org/images/logo/atoum.png)
