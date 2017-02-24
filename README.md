@@ -41,19 +41,17 @@ Install extension using [composer](https://getcomposer.org):
 composer require --dev atoum/ruler-extension
 ```
 
-Enable the extension using atoum configuration file:
+The extension will be automatically loaded. If you ever want to unload it, you can add this to your configuration file:
 
 ```php
 <?php
 
 // .atoum.php
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+use mageekguy\atoum\ruler;
 
-$extension = new \atoum\ruler\extension($script);
-$extension->addToRunner($extension);
+$runner->removeExtension(ruler\extension::class);
 ```
-
 
 ## Examples
 
