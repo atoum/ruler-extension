@@ -1,3 +1,7 @@
+# 1.3.0 - 2017-02-24
+
+* [#37](https://github.com/atoum/ruler-extension/pull/37) Support atoum 3.x ([@vdechenaux] & [@jubianchi])
+
 # 1.2.0 - 2016-01-19
 
 * [#30](https://github.com/atoum/ruler-extension/pull/30) Update Hoa dependency ([@jubianchi] & [@Hywan])
@@ -27,3 +31,4 @@
 [@jubianchi]: https://github.com/jubianchi
 [@Metalaka]: https://github.com/Metalaka
 [@Hywan]: https://github.com/Hywan
+[@vdechenaux]: https://github.com/vdechenaux
